@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/my_Inherited_widget.dart';
 import 'package:flutter_sample/my_provider.dart';
+import 'package:flutter_sample/my_provider_slider.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -48,6 +49,10 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const MyProviderPage(title: 'Provider',)));
             }, child: const Text('Provider')),
+            OutlinedButton(onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MySliderPage(title: 'ProviderSlider',)));
+            }, child: const Text('ProviderSlider')),
             OutlinedButton(onPressed: () => {}, child: const Text('Riverpod')),
           ],
         ),
