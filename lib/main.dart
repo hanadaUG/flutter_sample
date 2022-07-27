@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sample/my_Inherited_widget.dart';
 import 'package:flutter_sample/my_provider.dart';
 import 'package:flutter_sample/my_provider_slider.dart';
+import 'package:flutter_sample/my_riverpod_slider.dart';
 void main() {
-  runApp(const MyApp());
+  // 2.ProviderScopeを設定
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -53,7 +60,10 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const MySliderPage(title: 'ProviderSlider',)));
             }, child: const Text('ProviderSlider')),
-            OutlinedButton(onPressed: () => {}, child: const Text('Riverpod')),
+            OutlinedButton(onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MyRiverpodSliderPage(title: 'RiverpodSlider',)));
+            }, child: const Text('RiverpodSlider')),
           ],
         ),
       )),
