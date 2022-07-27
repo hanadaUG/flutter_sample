@@ -20,6 +20,13 @@ class MyProviderPageState extends State<MyProviderPage> {
     debugPrint("count:$_counter");
   }
 
+  final Widget _widget = Center(
+      child: Consumer<int>(
+    builder: (context, value, _) => Text(
+      value.toString(),
+      style: const TextStyle(fontSize: 100),),
+  ));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +39,7 @@ class MyProviderPageState extends State<MyProviderPage> {
         //     message: 'I am InheritedWidget',
         //     count: _counter,
         //     child: const Center(child: WidgetA(tag: 'a'))),
-        Provider<int>.value(value: _counter, child: const Center(child: WidgetA(tag: 'a'))),
+        Provider<int>.value(value: _counter, child: _widget),
       ]),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
